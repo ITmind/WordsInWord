@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "com.itmindco.wordsinword"
+        minSdkVersion 10
+        targetSdkVersion 21
+        versionCode 2
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("c:\\Projects\\user.keystore")
+            storePassword "Admin8119"
+            keyAlias "sign"
+            keyPassword "Admin8119"
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.github.shell-software:fab:1.0.1'
+    compile 'org.jsoup:jsoup:1.8.1'
+    compile 'com.google.android.gms:play-services-ads:7.0.0'
+}

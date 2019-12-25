@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.itmindco.wordsinword.TextViewCheckable xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/wordViewText"
+    android:id="@+id/twCh">
+
+</com.itmindco.wordsinword.TextViewCheckable>
