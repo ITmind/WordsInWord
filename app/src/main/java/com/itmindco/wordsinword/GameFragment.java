@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,10 +20,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+//import com.google.android.gms.ads.InterstitialAd;
 import com.software.shell.fab.FloatingActionButton;
 
-import org.apache.http.client.ClientProtocolException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -54,7 +53,7 @@ public class GameFragment extends Fragment implements WordView.WordViewListener 
     int mode = 0;
     Quest quest;
     int coins = 0;
-    private InterstitialAd interstitial;
+    //private InterstitialAd interstitial;
 
     public GameFragment() {
     }
@@ -117,11 +116,11 @@ public class GameFragment extends Fragment implements WordView.WordViewListener 
                 .addTestDevice(Settings.Secure.getString(getActivity().getContentResolver(), Settings.Secure.ANDROID_ID))
                 .build();
 
-        interstitial = new InterstitialAd(getActivity());
-        interstitial.setAdUnitId("ca-app-pub-4099519512268108/5614974492");
+        //interstitial = new InterstitialAd(getActivity());
+        //interstitial.setAdUnitId("ca-app-pub-4099519512268108/5614974492");
 
         // Запуск загрузки межстраничного объявления.
-        interstitial.loadAd(adRequest);
+        //interstitial.loadAd(adRequest);
 
         mode = getArguments().getInt("mode");
         initMode(rootView);
@@ -333,9 +332,9 @@ public class GameFragment extends Fragment implements WordView.WordViewListener 
 
 
     public void displayInterstitial() {
-        if (interstitial.isLoaded()) {
-            interstitial.show();
-        }
+//        if (interstitial.isLoaded()) {
+//            interstitial.show();
+//        }
     }
 
     private void addWord() {
@@ -564,9 +563,6 @@ public class GameFragment extends Fragment implements WordView.WordViewListener 
                 Document doc  = Jsoup.connect(uri[0]).get();
                 responseString = GetDescriptionFromHTML(doc);
 
-            } catch (ClientProtocolException e) {
-                //TODO Handle problems..
-                responseString = e.toString();
             } catch (IOException e) {
                 responseString = e.toString();
                 //TODO Handle problems..

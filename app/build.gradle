@@ -1,42 +1,35 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    //id 'kotlin-android'
+}
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdk 31
 
     defaultConfig {
         applicationId "com.itmindco.wordsinword"
-        minSdkVersion 10
-        targetSdkVersion 21
-        versionCode 2
+        minSdk 19
+        targetSdk 31
+        versionCode 3
         versionName "1.0"
     }
 
-    signingConfigs {
-        release {
-            storeFile file("c:\\Projects\\user.keystore")
-            storePassword "Admin8119"
-            keyAlias "sign"
-            keyPassword "Admin8119"
-        }
-
-    }
 
     buildTypes {
         release {
             minifyEnabled false
-            signingConfig signingConfigs.release
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
 
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.3'
-    compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.github.shell-software:fab:1.0.1'
-    compile 'org.jsoup:jsoup:1.8.1'
-    compile 'com.google.android.gms:play-services-ads:7.0.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.github.shell-software:fab:1.0.1'
+    implementation 'org.jsoup:jsoup:1.8.1'
+    implementation 'com.google.android.gms:play-services-ads:7.0.0'
 }
